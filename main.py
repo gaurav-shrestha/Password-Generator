@@ -9,27 +9,35 @@ list_alpha = list(alpha)
 num = string.digits
 list_num = list(num)
 
-
-list_symb = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
-
-
-# Main Program
-print("\t!!CREATE PASSWORD!!\n")
-
-letters = int(input("How many LETTERS do you want?\n"))
-symbols = int(input("How many SYMBOLS do you want?\n"))
-numbers = int(input("How many NUMBERS do you want?\n"))
+symb = string.punctuation
+list_symb = list(symb)
 
 
-password = ""
+# Defining function
+def pw_generator():
+    print("\t!!CREATE PASSWORD!!\n")
 
-for letter in range(letters):
-    password += random.choice(list_alpha)
+    letters = int(input("How many LETTERS do you want?\n"))
+    symbols = int(input("How many SYMBOLS do you want?\n"))
+    numbers = int(input("How many NUMBERS do you want?\n"))
 
-for symbol in range(symbols):
-    password += random.choice(list_symb)
+    password_lst = []
 
-for number in range(numbers):
-    password += random.choice(list_num)
+    for letter in range(letters):
+        rand_letter = random.choice(list_alpha)
+        password_lst.append(rand_letter)
 
-print(f"Here is your password: {password}")
+    for symbol in range(symbols):
+        password_lst += random.choice(list_symb)
+
+    for number in range(numbers):
+        password_lst += random.choice(list_num)
+
+    random.shuffle(password_lst)
+    password = "".join(password_lst)
+    print(f"PASSWORD= {password}")
+
+
+# Calling function
+if __name__ == "__main__":
+    pw_generator()
