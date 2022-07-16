@@ -1,12 +1,16 @@
+# Importing Modules
 import random
+import string
 
 # DATA list
-alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
-         'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+alpha = string.ascii_letters
+list_alpha = list(alpha)
 
-num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+num = string.digits
+list_num = list(num)
 
-symb = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+list_symb = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
 
 # Main Program
@@ -20,12 +24,12 @@ numbers = int(input("How many NUMBERS do you want?\n"))
 password = ""
 
 for letter in range(letters):
-    password = password + random.choice(alpha)
+    password += random.choice(list_alpha)
 
 for symbol in range(symbols):
-    password = password + random.choice(symb)
+    password += random.choice(list_symb)
 
 for number in range(numbers):
-    password = password + random.choice(num)
+    password += random.choice(list_num)
 
 print(f"Here is your password: {password}")
